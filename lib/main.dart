@@ -2,6 +2,7 @@ import 'package:borangan/componens/rounded_search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:borangan/componens/box_field_container.dart';
 import 'package:borangan/componens/rounded_box.dart';
+import 'package:borangan/componens/button.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -21,7 +22,7 @@ class _BoranganState extends State<Borangan> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: Colors.green[700],
+        backgroundColor: Color(0xFF04855e),
         actions: <Widget>[
           RoundedSearchField(),
           new IconButton(
@@ -38,55 +39,66 @@ class _BoranganState extends State<Borangan> {
               onPressed: null)
         ],
       ),
-      body: new Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-        child: new Column(
+        body: new Stack(
           children: <Widget>[
-            Image.asset(
-              "img/tree.png",
-              width: 75.0,
+            Container(
+              height : 70,
+              color: Color(0xFF04855e),
             ),
-            new Text(
-              "BORANGAN",
-              style: new TextStyle(fontSize: 20.0, color: Colors.green),
-            ),
-            new Image.asset(
-              "img/hidroponik.jpg",
-              width: 300.0,
-              height: 300.0,
-            ),
-            new Row(
-              children: <Widget>[
-                Padding(padding: EdgeInsets.only(left: 35)),
-                SizedBox(
-                  height: size.height * 0.05,
-                ),
-                RoundedButton(
-                  // text: "Tips&Trik",
-                  press: () {},
-                ),
-                RoundedButton(
-                  // text: "Sejarah",
-                  press: () {},
-                ),
-              ],
-            ),
+            // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             new Column(
               children: <Widget>[
-                SizedBox(
-                  height: size.height * 0.00,
+                Image.asset(
+                  "img/tree.png",
+                  width: 75.0,
                 ),
-                RoundedButton2(
-                  text: "Kelebihan&Kekurangan",
-
-                  press: () {},
+                new Text(
+                  "BORANGAN",
+                  style: new TextStyle(fontSize: 20.0, color: Color(0xFF117b1b)),
+                ),
+                new Image.asset(
+                  "img/hidroponik.jpg",
+                  width: 300.0,
+                  height: 300.0,
+                ),
+                new Row(
+                  children: <Widget>[
+                    Padding(padding: EdgeInsets.only(left: 55)),
+                    // SizedBox(
+                    //   height: size.height * 0.05,
+                    // ),
+                    Btntes(
+                      txtBtn: "Tips & Trik",
+                    ),
+                    Btntes2(
+                      txtBtn: "Sejarah",
+                    )
+                    // RoundedButton(
+                    //   // text: "Tips&Trik",
+                    //   press: () {},
+                    // ),
+                    // RoundedButton3(
+                    //   // text: "Sejarah",
+                    //   press: () {},
+                    // ),
+                  ],
+                ),
+                new Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: size.height * 0.00,
+                    ),
+                    RoundedButton2(
+                      text: "Kelebihan&Kekurangan",
+                      press: () {},
+                    ),
+                  ],
                 ),
               ],
             ),
+
           ],
-        ),
-      ),
+        )
     );
   }
 }
